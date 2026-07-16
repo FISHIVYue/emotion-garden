@@ -1,11 +1,12 @@
 import type { PlantId } from '../types'
+import type { PlantState } from '../types/emotion'
 import './PlantIllustration.css'
 
-export function PlantIllustration({ plantId = 'silver-fern', compact = false }: { plantId?: PlantId; compact?: boolean }) {
+export function PlantIllustration({ plantId = 'silver-fern', compact = false, state = 'calm' }: { plantId?: PlantId; compact?: boolean; state?: PlantState }) {
   const isFlower = plantId === 'water-lily' || plantId === 'moon-orchid'
   const isSucculent = plantId === 'succulent'
   return (
-    <div className={`plant-art plant-art--${plantId} ${compact ? 'plant-art--compact' : ''}`} role="img" aria-label={`${plantId} 植物插画`}>
+    <div className={`plant-art plant-art--${plantId} plant-art--state-${state} ${compact ? 'plant-art--compact' : ''}`} role="img" aria-label={`${plantId} 植物插画，${state} 状态`}>
       <span className="plant-art__halo" />
       <svg viewBox="0 0 280 330" aria-hidden="true">
         <defs>

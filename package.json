@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
     "lint": "eslint .",
     "typecheck": "tsc -b --pretty false",
     "preview": "vite preview"
@@ -20,12 +22,18 @@
   },
   "devDependencies": {
     "@eslint/js": "latest",
+    "@playwright/test": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",
     "globals": "latest",
-    "typescript-eslint": "latest"
+    "jsdom": "latest",
+    "typescript-eslint": "latest",
+    "vitest": "latest"
   }
 }

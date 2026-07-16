@@ -4,6 +4,7 @@ import { QuestionnairePage } from './pages/QuestionnairePage'
 import { PlantMatchPage } from './pages/PlantMatchPage'
 import { GardenPage } from './pages/GardenPage'
 import { PlaceholderPage } from './pages/PlaceholderPage'
+import { TimelinePage } from './pages/TimelinePage'
 import './styles/app.css'
 
 function AnimatedRoutes() {
@@ -17,7 +18,8 @@ function AnimatedRoutes() {
           <Route path="/questionnaire" element={<QuestionnairePage />} />
           <Route path="/plant-match" element={<PlantMatchPage />} />
           <Route path="/garden" element={<GardenPage />} />
-          <Route path="/timeline" element={<PlaceholderPage type="timeline" />} />
+          <Route path="/timeline" element={<TimelinePage />} />
+          <Route path="/timeline/:date" element={<TimelinePage />} />
           <Route path="/forest" element={<PlaceholderPage type="forest" />} />
           <Route path="/profile" element={<PlaceholderPage type="profile" />} />
           <Route path="*" element={<WelcomePage />} />

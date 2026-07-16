@@ -1,0 +1,9 @@
+.breathing-layer { position: absolute; z-index: 50; inset: 0; padding: max(var(--space-6),env(safe-area-inset-top)) var(--space-5) max(var(--space-6),env(safe-area-inset-bottom)); display: flex; flex-direction: column; color: #edf0e9; background: rgba(38,52,45,.94); backdrop-filter: blur(18px); animation: page-in var(--motion-base) ease both; }
+.breathing-layer__close { align-self: flex-end; border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-pill); padding: 9px 15px; color: #e8ebe5; background: transparent; cursor: pointer; }
+.breathing-layer__center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.breathing-layer .eyebrow { color: rgba(237,240,233,.55); }.breathing-layer h2 { margin: 10px 0 40px; font: 500 28px Georgia,"Noto Serif SC",serif; }
+.breathing-orbit { width: 175px; height: 175px; display: grid; place-items: center; position: relative; }
+.breathing-orbit i { position: absolute; border-radius: 50%; border: 1px solid rgba(217,200,155,.48); animation: breathing-ring 8s ease-in-out infinite; }.breathing-orbit i:first-child { inset: 0; box-shadow: 0 0 50px rgba(217,200,155,.13); }.breathing-orbit i:last-child { inset: 25%; background: rgba(217,200,155,.14); animation-delay: -.15s; }
+.breathing-orbit--done i { animation-play-state: paused; transform: scale(.82); }
+.breathing-layer__phase { margin: 38px 0 7px; font: 500 19px Georgia,"Noto Serif SC",serif; letter-spacing: .12em; }.breathing-layer__center > span { color: rgba(237,240,233,.6); font-size: 12px; }
+@keyframes breathing-ring { 0%,100% { transform: scale(.72); opacity: .45; } 50% { transform: scale(1); opacity: 1; } }
