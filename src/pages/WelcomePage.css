@@ -1,0 +1,13 @@
+.welcome-page { display: flex; flex-direction: column; padding-bottom: max(var(--space-6), env(safe-area-inset-bottom)); }
+.welcome-page__brand { display: flex; align-items: center; gap: 9px; font-family: Georgia, "Noto Serif SC", serif; font-size: 15px; letter-spacing: .08em; }
+.welcome-page__brand small { margin-left: auto; color: var(--color-text-soft); font: 9px/1 system-ui, sans-serif; letter-spacing: .2em; }
+.welcome-page__seed { width: 10px; height: 16px; border-radius: 90% 10% 90% 10%; background: var(--color-primary); transform: rotate(-22deg); }
+.welcome-page__visual { min-height: 240px; flex: 1 1 290px; display: grid; place-items: center; position: relative; margin: -8px 0 -18px; }
+.welcome-page__visual .plant-art { opacity: .82; filter: blur(.15px); }
+.welcome-page__veil { position: absolute; z-index: 2; width: 110%; height: 38%; bottom: 13%; background: rgba(244,245,239,.46); filter: blur(21px); border-radius: 50%; animation: welcome-veil 9s ease-in-out infinite alternate; }
+.welcome-page__content { position: relative; z-index: 3; }
+.welcome-page__content .eyebrow { margin-bottom: var(--space-3); }
+.welcome-page__content .body-copy { max-width: 340px; margin: var(--space-4) 0 var(--space-5); }
+.welcome-page__actions { display: grid; gap: 10px; }
+@keyframes welcome-veil { from { transform: translateX(-4%); opacity: .62; } to { transform: translateX(5%); opacity: .82; } }
+@media (max-height: 760px) { .welcome-page__visual { min-height: 180px; flex-basis: 210px; } .welcome-page__content .body-copy { margin-block: 10px 14px; } }

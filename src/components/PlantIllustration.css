@@ -1,0 +1,21 @@
+.plant-art { --leaf-light: #a8b8a7; --leaf-dark: #476353; --flower: #c6c8bb; width: min(78vw, 340px); aspect-ratio: 280 / 330; position: relative; animation: plant-breathe 7s ease-in-out infinite; }
+.plant-art--mimosa { --leaf-light: #aeb9a2; --leaf-dark: #51664c; }
+.plant-art--succulent { --leaf-light: #b7c2ad; --leaf-dark: #65765f; }
+.plant-art--water-lily { --leaf-light: #9daf9e; --leaf-dark: #526c60; --flower: #bdc4c3; }
+.plant-art--ivy { --leaf-light: #9fae97; --leaf-dark: #405a48; }
+.plant-art--moon-orchid { --leaf-light: #a5b2a2; --leaf-dark: #536558; --flower: #c6c0cb; }
+.plant-art--compact { width: min(44vw, 190px); }
+.plant-art svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 16px 18px rgba(47,66,53,.14)); }
+.plant-art__halo { position: absolute; inset: 17% 3% 5%; border-radius: 50%; background: radial-gradient(circle, rgba(238,232,204,.72), transparent 65%); filter: blur(10px); }
+.plant-art__shadow { fill: rgba(47,62,52,.12); filter: blur(4px); }
+.plant-art__stem path { fill: none; stroke: #657765; stroke-width: 3.2; stroke-linecap: round; }
+.plant-art__leaves { fill: url('#leaf-silver-fern'); fill: var(--leaf-dark); opacity: .9; }
+.plant-art__leaves path, .plant-art__leaves ellipse { fill: url('#leaf-silver-fern'); fill: color-mix(in srgb, var(--leaf-light) 55%, var(--leaf-dark)); stroke: rgba(247,247,238,.34); stroke-width: 1; transform-box: fill-box; transform-origin: bottom center; animation: leaf-sway 6s ease-in-out infinite alternate; }
+.plant-art__leaves path:nth-child(even) { animation-delay: -2.8s; }
+.plant-art__flower ellipse, .plant-art__flower circle { fill: var(--flower); opacity: .92; }
+.plant-art__flower { transform-origin: 140px 98px; animation: flower-open 5s ease-in-out infinite alternate; }
+.plant-art__specks { fill: #d9c89b; animation: speck 4s ease-in-out infinite alternate; }
+@keyframes plant-breathe { 0%,100% { transform: scale(1) translateY(0); } 50% { transform: scale(1.012) translateY(-4px); } }
+@keyframes leaf-sway { from { transform: rotate(-.7deg); } to { transform: rotate(1.1deg); } }
+@keyframes flower-open { from { transform: translate(140px,98px) scale(.98); } to { transform: translate(140px,98px) scale(1.02); } }
+@keyframes speck { from { opacity: .25; } to { opacity: .9; } }

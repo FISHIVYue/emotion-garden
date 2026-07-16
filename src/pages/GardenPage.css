@@ -1,0 +1,19 @@
+.garden-page { display: flex; flex-direction: column; }
+.garden-page__header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); }
+.garden-page__header h1 { margin: 7px 0 0; font-family: Georgia, "Noto Serif SC", serif; font-size: 24px; font-weight: 500; }
+.garden-page__light { width: 48px; height: 48px; border: 0; border-radius: 50%; background: rgba(255,255,255,.3); cursor: pointer; }
+.garden-page__light span { display: block; width: 13px; height: 13px; margin: auto; border-radius: 50%; background: var(--color-glow); box-shadow: 0 0 0 7px rgba(217,200,155,.16), 0 0 24px rgba(217,200,155,.8); }
+.garden-page__stage { min-height: 340px; flex: 1 1 430px; display: grid; place-items: center; position: relative; margin: -14px 0 -62px; }
+.garden-page__stage .plant-art { width: min(76vw, 335px); }
+.garden-page__orbit { position: absolute; width: min(72vw, 310px); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; box-shadow: inset 0 0 40px rgba(255,255,255,.18); }
+.garden-page__label { position: absolute; right: 0; bottom: 28%; padding-left: 28px; text-align: right; }
+.garden-page__label::before { content: ''; position: absolute; width: 60px; height: 1px; right: 0; top: -9px; background: rgba(53,68,59,.28); }
+.garden-page__label span, .garden-page__label small { display: block; color: var(--color-text-soft); font-size: 10px; letter-spacing: .12em; }
+.garden-page__label h2 { margin: 3px 0; font: 500 17px Georgia, "Noto Serif SC", serif; }
+.garden-page__response { max-width: 355px; display: flex; align-items: flex-start; gap: var(--space-3); position: relative; z-index: 2; }
+.garden-page__response p { margin: 0; color: var(--color-text-soft); font-family: Georgia, "Noto Serif SC", serif; font-size: 14px; line-height: 1.7; }
+.garden-page__line { width: 22px; height: 1px; margin-top: 11px; flex: 0 0 auto; background: var(--color-primary); opacity: .55; }
+.garden-page__actions { margin-top: var(--space-4); display: grid; grid-template-columns: 1.1fr .9fr; gap: 10px; }
+.garden-page__touch { padding-inline: 12px; font-size: 12px; line-height: 1.35; }
+@media (max-height: 780px) { .garden-page__stage { min-height: 285px; flex-basis: 330px; margin-bottom: -50px; }.garden-page__stage .plant-art { width: 275px; }.garden-page__actions { margin-top: 10px; }.garden-page__header h1 { font-size: 21px; } }
+@media (max-width: 370px) { .garden-page__actions { grid-template-columns: 1fr; }.garden-page__touch { min-height: 42px; }.garden-page__stage { margin-bottom: -55px; } }

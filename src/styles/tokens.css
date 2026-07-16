@@ -1,0 +1,36 @@
+:root {
+  --color-page: #f3f1ea;
+  --color-page-deep: #e8ebe3;
+  --color-text: #29362f;
+  --color-text-soft: #69746e;
+  --color-primary: #405d4c;
+  --color-primary-deep: #30483a;
+  --color-mist-blue: #9bafb4;
+  --color-border: rgba(53, 68, 59, 0.16);
+  --color-card: rgba(250, 249, 244, 0.78);
+  --color-glow: #d9c89b;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-pill: 999px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --shadow-soft: 0 18px 50px rgba(47, 62, 52, 0.11);
+  --shadow-button: 0 10px 24px rgba(48, 72, 58, 0.2);
+  --motion-fast: 180ms;
+  --motion-base: 360ms;
+  --motion-slow: 7s;
+  --content-max: 480px;
+  --nav-height: 76px;
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: var(--color-text);
+  background: #dfe4dc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}

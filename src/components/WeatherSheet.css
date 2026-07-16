@@ -1,0 +1,19 @@
+.sheet-layer { position: absolute; z-index: 40; inset: 0; display: flex; align-items: flex-end; background: rgba(34,47,39,.25); backdrop-filter: blur(3px); animation: sheet-fade var(--motion-fast) ease both; }
+.weather-sheet { width: 100%; padding: 10px var(--space-5) calc(var(--space-6) + env(safe-area-inset-bottom)); border-radius: 30px 30px 0 0; background: #f5f3ed; box-shadow: 0 -18px 50px rgba(38,52,43,.17); animation: sheet-up var(--motion-base) ease both; }
+.weather-sheet__handle { width: 42px; height: 4px; margin: 0 auto var(--space-5); border-radius: 4px; background: rgba(53,68,59,.2); }
+.weather-sheet__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.weather-sheet h2 { margin: 5px 0 0; font-family: Georgia, "Noto Serif SC", serif; font-size: 23px; font-weight: 500; }
+.weather-sheet > .body-copy { margin: 8px 0 16px; }
+.weather-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.weather-grid button { min-height: 86px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: rgba(255,255,255,.48); cursor: pointer; transition: background var(--motion-fast), transform var(--motion-fast); }
+.weather-grid button:active { transform: scale(.97); background: rgba(168,181,164,.24); }
+.weather-icon { width: 30px; height: 24px; position: relative; display: block; color: var(--color-primary); }
+.weather-icon i, .weather-icon b { position: absolute; display: block; box-sizing: border-box; }
+.weather-icon--sun i { width: 18px; height: 18px; left: 6px; top: 3px; border: 1.5px solid currentColor; border-radius: 50%; box-shadow: 0 0 0 4px rgba(217,200,155,.2); }
+.weather-icon--cloud i, .weather-icon--rain i, .weather-icon--storm i { width: 27px; height: 13px; left: 1px; top: 7px; border: 1.5px solid currentColor; border-radius: 12px; }
+.weather-icon--rain b { width: 14px; height: 7px; left: 8px; top: 19px; border-left: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: skew(-16deg); }
+.weather-icon--storm b { width: 8px; height: 12px; left: 12px; top: 15px; background: currentColor; clip-path: polygon(50% 0,100% 0,65% 45%,100% 45%,20% 100%,43% 54%,0 54%); }
+.weather-icon--fog i { width: 28px; height: 12px; top: 5px; border-top: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; }.weather-icon--fog b { width: 21px; left: 4px; top: 12px; border-top: 1.5px solid currentColor; }
+.weather-icon--unknown i { width: 24px; height: 24px; left: 3px; border: 1.5px solid currentColor; border-radius: 50%; }.weather-icon--unknown::after { content: '…'; position: absolute; inset: -4px 0 0; text-align: center; font-size: 19px; }
+.weather-sheet__note { margin: 14px 0 0; text-align: center; color: var(--color-text-soft); font-size: 11px; }
+@keyframes sheet-fade { from { opacity: 0; } to { opacity: 1; } } @keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }

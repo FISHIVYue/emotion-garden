@@ -1,0 +1,10 @@
+.question-card { padding-top: clamp(32px, 9vh, 74px); }
+.question-card__note { margin: 0 0 var(--space-3); color: var(--color-text-soft); font-size: 13px; line-height: 1.6; }
+.question-card__title { min-height: 82px; margin: 0 0 var(--space-8); font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(25px, 7vw, 31px); line-height: 1.42; font-weight: 500; }
+.question-card__options { display: grid; gap: var(--space-3); }
+.question-option { width: 100%; min-height: 62px; padding: var(--space-4) var(--space-5); display: flex; align-items: center; justify-content: space-between; text-align: left; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: rgba(252,251,247,.56); cursor: pointer; transition: border var(--motion-fast), background var(--motion-fast), transform var(--motion-fast); }
+.question-option:hover { border-color: rgba(64,93,76,.35); }
+.question-option:active { transform: scale(.99); }
+.question-option--selected { border-color: var(--color-primary); background: rgba(168,181,164,.22); }
+.question-option__mark { width: 19px; height: 19px; flex: 0 0 auto; margin-left: var(--space-4); border: 1px solid rgba(53,68,59,.35); border-radius: 50%; box-shadow: inset 0 0 0 4px transparent; }
+.question-option--selected .question-option__mark { border-color: var(--color-primary); background: var(--color-primary); box-shadow: inset 0 0 0 4px #e9ece4; }

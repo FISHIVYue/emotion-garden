@@ -1,0 +1,10 @@
+.ambient { position: absolute; inset: 0; overflow: hidden; z-index: -2; background: linear-gradient(160deg, #f4f1e8 0%, #e6ece4 55%, #dce5e1 100%); }
+.ambient--darker { background: linear-gradient(165deg, #eef0e8 0%, #dfe7df 58%, #ccd9d7 100%); }
+.ambient__glow { position: absolute; border-radius: 50%; filter: blur(3px); opacity: .65; }
+.ambient__glow--one { width: 280px; height: 280px; right: -100px; top: -60px; background: radial-gradient(circle, rgba(217,200,155,.48), transparent 68%); }
+.ambient__glow--two { width: 240px; height: 240px; left: -100px; bottom: 8%; background: radial-gradient(circle, rgba(155,175,180,.35), transparent 68%); }
+.ambient__mist { position: absolute; width: 130%; height: 130px; left: -15%; border-radius: 50%; filter: blur(25px); background: rgba(255,255,255,.28); animation: mist-drift 14s ease-in-out infinite alternate; }
+.ambient__mist--one { top: 28%; transform: rotate(-8deg); }
+.ambient__mist--two { top: 53%; opacity: .65; animation-delay: -7s; animation-direction: alternate-reverse; }
+.ambient__grain { position: absolute; inset: 0; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E"); }
+@keyframes mist-drift { from { transform: translateX(-4%) rotate(-8deg); } to { transform: translateX(5%) rotate(-5deg); } }
