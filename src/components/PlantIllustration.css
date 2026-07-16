@@ -5,6 +5,14 @@
 .plant-art--ivy { --leaf-light: #9fae97; --leaf-dark: #405a48; }
 .plant-art--moon-orchid { --leaf-light: #a5b2a2; --leaf-dark: #536558; --flower: #c6c0cb; }
 .plant-art--compact { width: min(44vw, 190px); }
+.plant-art--state-bright { filter: saturate(1.05) brightness(1.04); }
+.plant-art--state-tired { transform-origin: bottom center; filter: saturate(.78) brightness(.94); }
+.plant-art--state-tired .plant-art__leaves { transform: translateY(5px) scaleY(.97); transform-origin: bottom; }
+.plant-art--state-anxious .plant-art__leaves path,.plant-art--state-anxious .plant-art__leaves ellipse { animation-duration: 2.5s; }
+.plant-art--state-rainy { filter: saturate(.82) hue-rotate(8deg); }
+.plant-art--state-stormy { filter: saturate(.72) brightness(.88); }
+.plant-art--state-foggy { opacity: .84; filter: saturate(.72); }
+.plant-art--state-mixed { filter: drop-shadow(8px 0 16px rgba(155,175,180,.12)) drop-shadow(-8px 0 16px rgba(217,200,155,.12)); }
 .plant-art svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 16px 18px rgba(47,66,53,.14)); }
 .plant-art__halo { position: absolute; inset: 17% 3% 5%; border-radius: 50%; background: radial-gradient(circle, rgba(238,232,204,.72), transparent 65%); filter: blur(10px); }
 .plant-art__shadow { fill: rgba(47,62,52,.12); filter: blur(4px); }

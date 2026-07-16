@@ -1,5 +1,11 @@
 .ambient { position: absolute; inset: 0; overflow: hidden; z-index: -2; background: linear-gradient(160deg, #f4f1e8 0%, #e6ece4 55%, #dce5e1 100%); }
 .ambient--darker { background: linear-gradient(165deg, #eef0e8 0%, #dfe7df 58%, #ccd9d7 100%); }
+.ambient--bright { background: linear-gradient(165deg,#f3f0e4 0%,#e9ece1 58%,#dce6df 100%); }
+.ambient--rainy { background: linear-gradient(165deg,#eceee9 0%,#dce4e1 58%,#c9d7d8 100%); }
+.ambient--stormy { background: linear-gradient(165deg,#e7e9e4 0%,#d4dcda 58%,#bdcbcc 100%); }
+.ambient--foggy { background: linear-gradient(165deg,#f0f0eb 0%,#e3e7e3 58%,#d8e0de 100%); }
+.ambient--tired { background: linear-gradient(165deg,#eeece5 0%,#e1e4dc 58%,#d2dbd5 100%); }
+.ambient--mixed { background: linear-gradient(145deg,#eeebe2 0%,#e1e6de 48%,#d5e0e0 100%); }
 .ambient__glow { position: absolute; border-radius: 50%; filter: blur(3px); opacity: .65; }
 .ambient__glow--one { width: 280px; height: 280px; right: -100px; top: -60px; background: radial-gradient(circle, rgba(217,200,155,.48), transparent 68%); }
 .ambient__glow--two { width: 240px; height: 240px; left: -100px; bottom: 8%; background: radial-gradient(circle, rgba(155,175,180,.35), transparent 68%); }
