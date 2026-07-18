@@ -30,6 +30,15 @@ export class EmotionRepository {
     return this.getAll().filter((entry) => localDateKey(entry.createdAt) === date).sort((a, b) => a.createdAt.localeCompare(b.createdAt))
   }
 
+  deleteEmotionEntry(entryId: string): boolean {
+    const entries = this.getAll()
+    const remaining = entries.filter((entry) => entry.id !== entryId)
+    if (remaining.length === entries.length) return false
+    writeJson(this.storage, EMOTION_STORAGE_KEY, { version: EMOTION_STORE_VERSION, entries: remaining } satisfies EmotionStore)
+    if (typeof window !== 'undefined') window.dispatchEvent(new Event(EMOTION_CHANGE_EVENT))
+    return true
+  }
+
   add(input: NewEmotionEntry, now = new Date()): EmotionEntry {
     const entry: EmotionEntry = {
       ...input,

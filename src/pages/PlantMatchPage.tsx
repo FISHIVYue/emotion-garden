@@ -14,7 +14,7 @@ export function PlantMatchPage() {
     <div className="page match-page">
       <AmbientBackground darker />
       <div className="match-page__intro"><p className="eyebrow">SYMBIOSIS FOUND</p><span>共生关系已建立</span></div>
-      <div className="match-page__plant"><PlantIllustration plantId={plant.id} /></div>
+      <div className="match-page__plant"><PlantIllustration plantId={plant.id} variant="result" /></div>
       <section className="match-page__content">
         <p className="match-page__species">{plant.species}</p>
         <h1 className="display-title">{plant.name}</h1>

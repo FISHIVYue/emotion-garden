@@ -12,7 +12,7 @@ export function WelcomePage() {
     <div className="page welcome-page">
       <AmbientBackground />
       <header className="welcome-page__brand"><span className="welcome-page__seed" aria-hidden="true" />情绪花园 <small>INNER GARDEN</small></header>
-      <div className="welcome-page__visual"><div className="welcome-page__veil" /><PlantIllustration compact /></div>
+      <div className="welcome-page__visual"><div className="welcome-page__veil" /><PlantIllustration variant="compact" /></div>
       <section className="welcome-page__content">
         <p className="eyebrow">A quiet place to feel</p>
         <h1 className="display-title">每一种情绪，<br />都有它生长的方式。</h1>

@@ -1,16 +1,83 @@
-.ambient { position: absolute; inset: 0; overflow: hidden; z-index: -2; background: linear-gradient(160deg, #f4f1e8 0%, #e6ece4 55%, #dce5e1 100%); }
-.ambient--darker { background: linear-gradient(165deg, #eef0e8 0%, #dfe7df 58%, #ccd9d7 100%); }
-.ambient--bright { background: linear-gradient(165deg,#f3f0e4 0%,#e9ece1 58%,#dce6df 100%); }
-.ambient--rainy { background: linear-gradient(165deg,#eceee9 0%,#dce4e1 58%,#c9d7d8 100%); }
-.ambient--stormy { background: linear-gradient(165deg,#e7e9e4 0%,#d4dcda 58%,#bdcbcc 100%); }
-.ambient--foggy { background: linear-gradient(165deg,#f0f0eb 0%,#e3e7e3 58%,#d8e0de 100%); }
-.ambient--tired { background: linear-gradient(165deg,#eeece5 0%,#e1e4dc 58%,#d2dbd5 100%); }
-.ambient--mixed { background: linear-gradient(145deg,#eeebe2 0%,#e1e6de 48%,#d5e0e0 100%); }
-.ambient__glow { position: absolute; border-radius: 50%; filter: blur(3px); opacity: .65; }
-.ambient__glow--one { width: 280px; height: 280px; right: -100px; top: -60px; background: radial-gradient(circle, rgba(217,200,155,.48), transparent 68%); }
-.ambient__glow--two { width: 240px; height: 240px; left: -100px; bottom: 8%; background: radial-gradient(circle, rgba(155,175,180,.35), transparent 68%); }
-.ambient__mist { position: absolute; width: 130%; height: 130px; left: -15%; border-radius: 50%; filter: blur(25px); background: rgba(255,255,255,.28); animation: mist-drift 14s ease-in-out infinite alternate; }
-.ambient__mist--one { top: 28%; transform: rotate(-8deg); }
-.ambient__mist--two { top: 53%; opacity: .65; animation-delay: -7s; animation-direction: alternate-reverse; }
-.ambient__grain { position: absolute; inset: 0; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E"); }
-@keyframes mist-drift { from { transform: translateX(-4%) rotate(-8deg); } to { transform: translateX(5%) rotate(-5deg); } }
+.ambient {
+  position: fixed;
+  z-index: -2;
+  inset: 0 auto 0 50%;
+  width: min(100%,var(--content-max));
+  overflow: hidden;
+  transform: translateX(-50%);
+  background: #e9ebe4;
+  pointer-events: none;
+}
+
+.page--with-nav > .ambient { bottom: calc(var(--nav-height) + env(safe-area-inset-bottom)); }
+
+.ambient__image,
+.ambient__veil,
+.ambient__fog-image,
+.ambient__grain { position: absolute; inset: 0; }
+
+.ambient__image {
+  inset: -2%;
+  background-image: url('/assets/backgrounds/bg-app-botanical.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.02);
+}
+
+.forest-page .ambient__image {
+  background-image: url('/assets/backgrounds/bg-forest-mist.webp');
+  background-position: center center;
+}
+
+.ambient__veil {
+  background:
+    linear-gradient(180deg,rgba(246,245,239,.28) 0%,rgba(246,245,239,.13) 24%,rgba(241,242,235,.3) 58%,rgba(239,241,234,.46) 100%),
+    linear-gradient(90deg,rgba(243,243,236,.16),rgba(249,248,242,.28) 48%,rgba(240,243,236,.16));
+}
+
+.forest-page .ambient__veil {
+  background:
+    linear-gradient(180deg,rgba(236,241,235,.3) 0%,rgba(239,242,235,.18) 30%,rgba(233,238,232,.34) 67%,rgba(229,235,229,.5) 100%),
+    radial-gradient(circle at 50% 35%,rgba(250,248,239,.34),rgba(226,234,229,.12) 60%);
+}
+
+.ambient--darker .ambient__veil { background-color: rgba(220,228,220,.1); }
+.ambient--bright .ambient__veil { background-color: rgba(245,239,217,.1); }
+.ambient--rainy .ambient__veil { background-color: rgba(198,216,217,.12); }
+.ambient--stormy .ambient__veil { background-color: rgba(169,187,186,.15); }
+.ambient--foggy .ambient__veil { background-color: rgba(232,236,233,.18); }
+.ambient--tired .ambient__veil { background-color: rgba(214,217,205,.12); }
+.ambient--mixed .ambient__veil { background-color: rgba(205,218,214,.1); }
+
+.ambient__glow { position: absolute; border-radius: 50%; filter: blur(4px); opacity: .38; }
+.ambient__glow--one { width: 280px; height: 280px; right: -100px; top: -60px; background: radial-gradient(circle,rgba(217,200,155,.4),transparent 68%); }
+.ambient__glow--two { width: 240px; height: 240px; left: -100px; bottom: 8%; background: radial-gradient(circle,rgba(155,175,180,.28),transparent 68%); }
+
+.ambient__fog-image {
+  inset: 11% -26% auto;
+  height: 58%;
+  background-image: url('/assets/atmosphere/overlay-fog-light.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .42;
+  animation: ambient-fog-drift 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.forest-page .ambient__fog-image { opacity: .52; }
+
+.ambient__grain {
+  opacity: .075;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E");
+}
+
+@keyframes ambient-fog-drift {
+  from { transform: translate3d(-2.2%,0,0) scale(1.01); }
+  to { transform: translate3d(2.2%,1.5%,0) scale(1.035); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient__fog-image { animation: none; transform: none; will-change: auto; }
+}

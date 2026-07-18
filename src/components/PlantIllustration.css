@@ -5,6 +5,10 @@
 .plant-art--ivy { --leaf-light: #9fae97; --leaf-dark: #405a48; }
 .plant-art--moon-orchid { --leaf-light: #a5b2a2; --leaf-dark: #536558; --flower: #c6c0cb; }
 .plant-art--compact { width: min(44vw, 190px); }
+.plant-art--hero { aspect-ratio: 673 / 1058; animation: none; isolation: isolate; }
+.plant-art--hero .plant-art__halo { inset: 10% -24% 3%; z-index: -1; background: radial-gradient(circle,rgba(249,244,224,.68),rgba(238,232,204,.22) 44%,transparent 70%); }
+.plant-art__visual { width: 100%; height: 100%; display: grid; place-items: center; transform-origin: 50% 88%; animation: hero-plant-breathe 7s ease-in-out infinite; }
+.plant-art__visual img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; user-select: none; filter: saturate(1.18) contrast(1.06) brightness(1.035) drop-shadow(0 16px 18px rgba(47,66,53,.18)); }
 .plant-art--state-bright { filter: saturate(1.05) brightness(1.04); }
 .plant-art--state-tired { transform-origin: bottom center; filter: saturate(.78) brightness(.94); }
 .plant-art--state-tired .plant-art__leaves { transform: translateY(5px) scaleY(.97); transform-origin: bottom; }
@@ -13,6 +17,20 @@
 .plant-art--state-stormy { filter: saturate(.72) brightness(.88); }
 .plant-art--state-foggy { opacity: .84; filter: saturate(.72); }
 .plant-art--state-mixed { filter: drop-shadow(8px 0 16px rgba(155,175,180,.12)) drop-shadow(-8px 0 16px rgba(217,200,155,.12)); }
+.plant-art--hero.plant-art--state-bright,.plant-art--hero.plant-art--state-tired,.plant-art--hero.plant-art--state-rainy,.plant-art--hero.plant-art--state-stormy,.plant-art--hero.plant-art--state-foggy,.plant-art--hero.plant-art--state-mixed { filter: none; opacity: 1; }
+.plant-art--hero.plant-art--state-bright .plant-art__visual img { filter: saturate(1.2) contrast(1.05) brightness(1.06) sepia(.02) drop-shadow(0 13px 21px rgba(217,200,155,.26)); }
+.plant-art--hero.plant-art--state-bright .plant-art__halo { opacity: .92; background: radial-gradient(circle,rgba(239,222,177,.68),transparent 68%); }
+.plant-art--hero.plant-art--state-bright .plant-art__halo::before,.plant-art--hero.plant-art--state-bright .plant-art__halo::after { content:''; position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(217,200,155,.58); box-shadow:26px 18px 0 -1px rgba(217,200,155,.42),-31px 39px 0 -1px rgba(217,200,155,.36),18px 72px 0 -1px rgba(217,200,155,.32); animation: bright-glimmer 5.8s ease-in-out infinite alternate; }
+.plant-art--hero.plant-art--state-bright .plant-art__halo::before { left:22%; top:24%; }
+.plant-art--hero.plant-art--state-bright .plant-art__halo::after { right:25%; top:37%; animation-delay:-2.7s; }
+.plant-art--hero.plant-art--state-tired .plant-art__visual { animation-name: hero-plant-tired; }
+.plant-art--hero.plant-art--state-tired .plant-art__visual img { filter: saturate(.88) contrast(1.04) brightness(.96) drop-shadow(0 12px 15px rgba(47,66,53,.12)); }
+.plant-art--hero.plant-art--state-anxious .plant-art__visual { animation: hero-plant-anxious 3.4s ease-in-out infinite; }
+.plant-art--hero.plant-art--state-anxious .plant-art__visual img { filter: saturate(1.14) contrast(1.06) brightness(1.02) drop-shadow(0 15px 18px rgba(47,66,53,.17)); }
+.plant-art--hero.plant-art--state-rainy .plant-art__visual img { filter: saturate(1.02) contrast(1.05) brightness(1) hue-rotate(3deg) drop-shadow(0 14px 17px rgba(74,98,98,.15)); }
+.plant-art--hero.plant-art--state-stormy .plant-art__visual img { filter: saturate(.92) contrast(1.06) brightness(.9) drop-shadow(0 14px 18px rgba(40,55,52,.2)); }
+.plant-art--hero.plant-art--state-foggy .plant-art__visual img { filter: saturate(.94) brightness(1.01) contrast(1.02) drop-shadow(0 13px 16px rgba(66,82,76,.1)); }
+.plant-art--hero.plant-art--state-mixed .plant-art__visual img { filter: saturate(1.04) contrast(1.04) brightness(1) drop-shadow(6px 0 13px rgba(155,175,180,.11)) drop-shadow(-6px 0 13px rgba(217,200,155,.11)); }
 .plant-art svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 16px 18px rgba(47,66,53,.14)); }
 .plant-art__halo { position: absolute; inset: 17% 3% 5%; border-radius: 50%; background: radial-gradient(circle, rgba(238,232,204,.72), transparent 65%); filter: blur(10px); }
 .plant-art__shadow { fill: rgba(47,62,52,.12); filter: blur(4px); }
@@ -27,3 +45,12 @@
 @keyframes leaf-sway { from { transform: rotate(-.7deg); } to { transform: rotate(1.1deg); } }
 @keyframes flower-open { from { transform: translate(140px,98px) scale(.98); } to { transform: translate(140px,98px) scale(1.02); } }
 @keyframes speck { from { opacity: .25; } to { opacity: .9; } }
+@keyframes hero-plant-breathe { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.008); } }
+@keyframes hero-plant-tired { 0%,100% { transform: translateY(5px) scale(.995); } 50% { transform: translateY(7px) scale(.998); } }
+@keyframes hero-plant-anxious { 0%,100% { transform: translate3d(0,0,0) rotate(0); } 22% { transform: translate3d(.45px,-1px,0) rotate(.1deg); } 48% { transform: translate3d(-.4px,-2px,0) rotate(-.1deg); } 72% { transform: translate3d(.3px,-1px,0) rotate(.07deg); } }
+@keyframes bright-glimmer { from { opacity:.28; transform:translateY(1px); } to { opacity:.65; transform:translateY(-2px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .plant-art__visual,.plant-art--hero.plant-art--state-bright .plant-art__halo::before,.plant-art--hero.plant-art--state-bright .plant-art__halo::after { animation: none; }
+  .plant-art--hero.plant-art--state-tired .plant-art__visual { transform: translateY(5px); }
+}

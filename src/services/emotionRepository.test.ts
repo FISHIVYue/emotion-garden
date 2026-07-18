@@ -33,4 +33,30 @@ describe('EmotionRepository', () => {
     storage.setItem(EMOTION_STORAGE_KEY,'not-json')
     expect(new EmotionRepository(storage).getAll()).toEqual([])
   })
+
+  it('deletes one entry by id while preserving other entries from the same day', () => {
+    const repository = new EmotionRepository(new MemoryStorage())
+    const first = repository.add({ ...baseEntry, emotions: ['sad'], triggers: [], bodySignals: [], needs: [] }, new Date('2026-07-17T08:00:00.000Z'))
+    const second = repository.add({ ...baseEntry, weather: 'sunny', emotions: ['joy'], triggers: [], bodySignals: [], needs: [] }, new Date('2026-07-17T11:00:00.000Z'))
+    expect(repository.deleteEmotionEntry(second.id)).toBe(true)
+    expect(repository.getAll().map((entry) => entry.id)).toEqual([first.id])
+    expect(repository.getLatest()?.plantState).toBe('rainy')
+  })
+
+  it('returns an empty day and calm-compatible null latest after the final entry is deleted', () => {
+    const repository = new EmotionRepository(new MemoryStorage())
+    const entry = repository.add({ ...baseEntry, emotions: ['sad'], triggers: [], bodySignals: [], needs: [] }, new Date('2026-07-17T08:00:00.000Z'))
+    expect(repository.deleteEmotionEntry(entry.id)).toBe(true)
+    expect(repository.getByDate('2026-07-17')).toEqual([])
+    expect(repository.getLatest()).toBeNull()
+    expect(repository.deleteEmotionEntry('missing')).toBe(false)
+  })
+
+  it('surfaces storage write failures instead of reporting success', () => {
+    const storage = new MemoryStorage()
+    const repository = new EmotionRepository(storage)
+    const entry = repository.add({ ...baseEntry, emotions: ['sad'], triggers: [], bodySignals: [], needs: [] })
+    storage.setItem = () => { throw new Error('quota exceeded') }
+    expect(() => repository.deleteEmotionEntry(entry.id)).toThrow('quota exceeded')
+  })
 })

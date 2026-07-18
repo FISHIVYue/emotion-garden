@@ -2,11 +2,23 @@ import type { PlantId } from '../types'
 import type { PlantState } from '../types/emotion'
 import './PlantIllustration.css'
 
-export function PlantIllustration({ plantId = 'silver-fern', compact = false, state = 'calm' }: { plantId?: PlantId; compact?: boolean; state?: PlantState }) {
+export type PlantIllustrationVariant = 'hero' | 'result' | 'compact'
+
+export function PlantIllustration({ plantId = 'silver-fern', variant = 'result', state = 'calm' }: { plantId?: PlantId; variant?: PlantIllustrationVariant; state?: PlantState }) {
+  if (variant !== 'compact') {
+    return (
+      <div className={`plant-art plant-art--hero plant-art--variant-${variant} plant-art--${plantId} plant-art--state-${state}`} role="img" aria-label={`${plantId} 植物插画，${state} 状态`}>
+        <span className="plant-art__halo" />
+        <div className="plant-art__visual">
+          <img src="/assets/plants/plant-hero.png" alt="" draggable="false" />
+        </div>
+      </div>
+    )
+  }
   const isFlower = plantId === 'water-lily' || plantId === 'moon-orchid'
   const isSucculent = plantId === 'succulent'
   return (
-    <div className={`plant-art plant-art--${plantId} plant-art--state-${state} ${compact ? 'plant-art--compact' : ''}`} role="img" aria-label={`${plantId} 植物插画，${state} 状态`}>
+    <div className={`plant-art plant-art--${plantId} plant-art--state-${state} plant-art--compact`} role="img" aria-label={`${plantId} 植物插画，${state} 状态`}>
       <span className="plant-art__halo" />
       <svg viewBox="0 0 280 330" aria-hidden="true">
         <defs>

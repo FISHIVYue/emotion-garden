@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-默认访问地址：`http://localhost:5173/`
+默认访问地址：`http://127.0.0.1:5173/`
 
 ## 类型检查
 

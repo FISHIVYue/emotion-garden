@@ -1,0 +1,98 @@
+.forest-page { display: flex; flex-direction: column; overflow-x: clip; }
+.forest-page__header { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; min-width: 0; }
+.forest-page__header > div { min-width: 0; }
+.forest-page__header .eyebrow { margin-bottom: 7px; overflow-wrap: anywhere; }
+.forest-page__new { flex: 0 0 auto; padding: 10px 15px; border: 1px solid rgba(53,68,59,.11); border-radius: var(--radius-pill); color: #f7f6f1; background: var(--color-primary); font-size: 12px; cursor: pointer; }
+.forest-page__intro { max-width: 350px; margin: 20px 0 22px; color: var(--color-text-soft); font: 13px/1.8 Georgia,"Noto Serif SC",serif; overflow-wrap: anywhere; }
+.forest-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px; align-self: flex-start; border: 1px solid rgba(53,68,59,.08); border-radius: var(--radius-pill); background: rgba(250,249,244,.28); }
+.forest-tabs button { position: relative; min-width: 0; padding: 8px 13px 9px; border: 0; border-radius: var(--radius-pill); color: var(--color-text-soft); background: transparent; font-size: 12px; cursor: pointer; transition: color var(--motion-fast),background var(--motion-fast); }
+.forest-tabs button[aria-selected="true"] { color: var(--color-text); background: rgba(250,249,244,.52); }
+.forest-tabs button[aria-selected="true"]::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 5px; height: 1px; background: rgba(64,93,76,.55); }
+.forest-tabs span { display: inline-grid; place-items: center; min-width: 17px; height: 17px; margin-left: 3px; border-radius: 50%; background: rgba(168,181,164,.2); font-size: 9px; }
+
+.forest-stream { width: 100%; max-width: 100%; min-width: 0; margin-top: 24px; padding-bottom: var(--space-4); display: grid; gap: 17px; overflow-x: clip; overflow-y: visible; overscroll-behavior: contain; }
+.resonance-card { width: 100%; max-width: 100%; min-width: 0; position: relative; padding: 21px; border: 1px solid rgba(53,68,59,.085); border-radius: 24px; background: rgba(250,249,244,.5); box-shadow: 0 7px 20px rgba(47,62,52,.035); }
+.resonance-card--sunny { background: rgba(250,247,235,.57); }
+.resonance-card--fog,.resonance-card--unclear { background: rgba(241,243,238,.54); }
+.resonance-card--rain,.resonance-card--storm { background: rgba(237,242,240,.52); }
+.resonance-card--wind,.resonance-card--cloudy { background: rgba(244,244,237,.53); }
+.resonance-card__identity { width: 100%; max-width: 100%; min-width: 0; display: flex; align-items: center; gap: 12px; padding-right: 43px; }
+.forest-avatar { width: 38px; height: 38px; flex: 0 0 auto; position: relative; border: 1px solid rgba(64,93,76,.07); border-radius: 50%; background: rgba(168,181,164,.18); }
+.forest-avatar i { position: absolute; width: 10px; height: 18px; left: 13px; top: 7px; border-radius: 90% 10% 90% 10%; background: var(--color-primary); transform: rotate(-17deg); opacity: .78; }
+.forest-avatar i + i { left: 18px; top: 12px; transform: scaleX(-1) rotate(-22deg); opacity: .42; }
+.forest-avatar--moss { background: rgba(155,175,180,.2); }
+.forest-avatar--ivy { background: rgba(159,177,154,.19); }
+.forest-avatar--lily { background: rgba(217,200,155,.2); }
+.forest-avatar--sprout { background: rgba(191,183,158,.18); }
+.resonance-card__identity-copy { display: grid; min-width: 0; gap: 4px; }
+.resonance-card__identity-copy > span { min-width: 0; color: rgba(41,54,47,.86); font: 500 12px/1.45 Georgia,"Noto Serif SC",serif; letter-spacing: .015em; overflow-wrap: anywhere; }
+.resonance-card__meta { display: flex; min-width: 0; align-items: center; flex-wrap: wrap; gap: 5px 8px; }
+.resonance-card time { min-width: 0; color: rgba(105,116,110,.72); font-size: 9px; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; }
+.resonance-card__meta small { padding: 3px 7px; border: 1px solid rgba(64,93,76,.09); border-radius: var(--radius-pill); color: rgba(64,93,76,.72); background: rgba(168,181,164,.1); font-size: 8px; line-height: 1; }
+.resonance-card__menu { position: absolute; z-index: 2; top: 16px; right: 16px; width: 36px; min-width: 36px; height: 36px; display: grid; place-items: center; padding: 0; overflow: visible; border: 0; border-radius: 50%; color: var(--color-text-soft); background: transparent; cursor: pointer; transition: background var(--motion-fast),transform var(--motion-fast); }
+.resonance-card__menu svg { width: 18px; height: 18px; display: block; overflow: visible; fill: currentColor; opacity: .78; }
+.resonance-card__menu:hover,.resonance-card__menu:focus-visible { background: rgba(64,93,76,.065); }
+.resonance-card__menu:focus-visible { outline: 2px solid rgba(155,175,180,.4); outline-offset: 1px; }
+.resonance-card__menu:active { background: rgba(64,93,76,.1); transform: scale(.96); }
+.resonance-card > p { max-width: 100%; display: -webkit-box; margin: 18px 0 0; color: rgba(41,54,47,.94); font: 14px/1.9 Georgia,"Noto Serif SC",serif; letter-spacing: .01em; overflow: hidden; overflow-wrap: anywhere; word-break: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 5; }
+.resonance-card > p.is-expanded { display: block; overflow: visible; }
+.resonance-card__expand { margin-top: 7px; padding: 0; border: 0; color: rgba(64,93,76,.72); background: none; font-size: 10px; cursor: pointer; }
+.resonance-card__reported { display: block; margin: 9px 0 0; color: #806d66; font-size: 9px; }
+.resonance-card__response { min-height: 28px; margin-top: 18px; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid rgba(53,68,59,.07); }
+.light-button { min-width: 0; display: inline-flex; align-items: center; gap: 7px; padding: 4px 0; border: 0; color: rgba(105,116,110,.86); background: none; font-size: 10px; cursor: pointer; white-space: normal; text-align: left; }
+.light-button svg { flex: 0 0 auto; overflow: visible; fill: rgba(217,200,155,.88); stroke: rgba(179,161,111,.38); stroke-width: 1; }
+.light-button.is-lighted { color: rgba(64,93,76,.78); }
+.light-button.is-lighted svg { fill: rgba(217,200,155,.72); filter: drop-shadow(0 0 4px rgba(217,200,155,.5)); }
+.resonance-card__response > small,.resonance-card__local-note { color: rgba(105,116,110,.62); font: 9px/1.5 Georgia,"Noto Serif SC",serif; text-align: right; }
+.resonance-card__local-note { margin-left: auto; }
+.resonance-card__popover { position: absolute; z-index: 5; right: 16px; top: 54px; display: grid; width: min(178px,calc(100% - 32px)); max-width: calc(100% - 32px); min-width: 0; padding: 6px; border: 1px solid rgba(53,68,59,.1); border-radius: 16px; background: rgba(248,246,240,.98); box-shadow: 0 12px 30px rgba(47,62,52,.1); }
+.resonance-card__popover > button { min-width: 0; padding: 10px 11px; border: 0; border-radius: 10px; text-align: left; background: none; font-size: 11px; cursor: pointer; white-space: normal; overflow-wrap: anywhere; }
+.resonance-card__popover > button:hover,.resonance-card__popover > button:focus-visible { background: rgba(168,181,164,.12); outline: none; }
+.resonance-card__popover button:disabled { opacity: .5; }
+.resonance-card__confirm { display: grid; gap: 8px; padding: 8px; }
+.resonance-card__confirm > span { color: var(--color-text-soft); font: 11px/1.5 Georgia,"Noto Serif SC",serif; }
+.resonance-card__confirm > div { display: flex; justify-content: flex-end; gap: 5px; }
+.resonance-card__confirm button { padding: 7px 8px; border: 0; border-radius: 9px; color: var(--color-text-soft); background: rgba(168,181,164,.1); font-size: 9px; cursor: pointer; }
+.resonance-card__confirm button.is-danger { color: #806d66; background: rgba(128,109,102,.08); }
+
+.forest-empty { min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.forest-empty i { width: 30px; height: 43px; border: 1px solid rgba(64,93,76,.28); border-radius: 90% 10% 90% 10%; transform: rotate(-16deg); }
+.forest-empty p { margin: 14px 0 4px; font: 15px Georgia,"Noto Serif SC",serif; }
+.forest-empty span { color: var(--color-text-soft); font-size: 11px; }
+.forest-notice { position: fixed; z-index: 30; left: 50%; bottom: calc(var(--nav-height) + 18px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); padding: 10px 16px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: rgba(247,246,240,.95); box-shadow: var(--shadow-soft); font-size: 11px; }
+
+.forest-compose-layer { position: fixed; z-index: 40; inset: 0; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; background: rgba(34,47,39,.28); backdrop-filter: blur(3px); }
+.forest-composer { width: min(100%,var(--content-max)); max-width: 100%; max-height: 82dvh; min-width: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: 10px var(--space-5) calc(var(--space-5) + env(safe-area-inset-bottom)); border-radius: 30px 30px 0 0; background: #f5f3ed; box-shadow: 0 -18px 50px rgba(38,52,43,.17); animation: sheet-up var(--motion-base) ease both; scrollbar-width: thin; scrollbar-color: rgba(64,93,76,.2) transparent; }
+.forest-composer__handle { width: 42px; height: 4px; margin: 0 auto 16px; border-radius: 4px; background: rgba(53,68,59,.2); }
+.forest-composer > header { position: sticky; z-index: 2; top: -10px; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 10px; background: #f5f3ed; }
+.forest-composer > header > div { min-width: 0; }
+.forest-composer h2 { margin: 5px 0 0; font: 500 23px Georgia,"Noto Serif SC",serif; overflow-wrap: anywhere; }
+.forest-composer > .body-copy { margin: 10px 0; }
+.forest-composer textarea { display: block; width: 100%; max-width: 100%; min-width: 0; min-height: 130px; resize: vertical; padding: 14px; border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-text); background: rgba(255,255,255,.55); line-height: 1.6; }
+.forest-composer__weather { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; padding-bottom: 4px; }
+.forest-composer__weather button { flex: 0 1 auto; min-width: 0; padding: 8px 11px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: rgba(255,255,255,.42); font-size: 11px; cursor: pointer; }
+.forest-composer__weather button[aria-pressed="true"] { border-color: var(--color-primary); background: rgba(168,181,164,.24); }
+.forest-composer > footer { display: flex; align-items: center; gap: 15px; margin-top: 12px; }
+.forest-composer > footer > span { color: var(--color-text-soft); font-size: 10px; }
+.forest-composer .primary-button { flex: 1; min-width: 0; }
+
+@media (max-height:760px) {
+  .forest-page__intro { margin: 12px 0 15px; }
+  .forest-stream { margin-top: 18px; gap: 14px; }
+  .resonance-card { padding: 18px; }
+  .resonance-card__menu { top: 14px; right: 14px; }
+  .resonance-card > p { margin-top: 14px; line-height: 1.8; }
+  .resonance-card__response { margin-top: 14px; padding-top: 11px; }
+  .forest-composer textarea { min-height: 90px; }
+}
+
+@media (max-width:370px) {
+  .forest-composer { padding-inline: var(--space-4); }
+  .resonance-card { padding-inline: 18px; }
+  .resonance-card__response { align-items: flex-start; flex-direction: column; }
+  .resonance-card__response > small { align-self: flex-end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resonance-card__menu { transition: none; }
+}
